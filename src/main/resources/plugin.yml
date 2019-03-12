@@ -1,0 +1,4 @@
+name: PE
+version: ${project.version}
+main: me.binomial.pe.PE
+api-version: 1.13
