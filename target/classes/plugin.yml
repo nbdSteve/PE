@@ -1,5 +1,5 @@
 name: PE
-version: ${project.version}
+version: 0.0.1-BETA
 main: dev.nuer.pe.PE
 author: Nuer
 api-version: 1.13
