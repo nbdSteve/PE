@@ -1,6 +1,7 @@
 package dev.nuer.pe;
 
 import dev.nuer.pe.command.PeCommand;
+import dev.nuer.pe.event.EnchantApplyEvent;
 import dev.nuer.pe.event.GuiBuyEvent;
 import dev.nuer.pe.file.LoadPEFiles;
 import dev.nuer.pe.method.RegisterEnchantments;
@@ -29,6 +30,7 @@ public final class PE extends JavaPlugin {
                 "blocked")), this);
 
         getServer().getPluginManager().registerEvents(new GuiBuyEvent(), this);
+        getServer().getPluginManager().registerEvents(new EnchantApplyEvent(), this);
         getCommand("pe").setExecutor(new PeCommand(this));
         getCommand("ce").setExecutor(new PeCommand(this));
         getCommand("enchanter").setExecutor(new PeCommand(this));

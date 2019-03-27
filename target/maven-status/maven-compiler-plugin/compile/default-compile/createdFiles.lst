@@ -1,1 +1,14 @@
+dev\nuer\pe\method\GetBookNumber.class
+dev\nuer\pe\method\ItemMetaMethods.class
+dev\nuer\pe\method\inventory\RomanNumber.class
+dev\nuer\pe\PE.class
+dev\nuer\pe\method\GetBookLevel.class
+dev\nuer\pe\gui\Enchanter.class
+dev\nuer\pe\method\itemcreation\CraftItem.class
+dev\nuer\pe\event\GuiBuyEvent.class
+dev\nuer\pe\method\message\PlayerMessage.class
+dev\nuer\pe\method\applyenchant\GetCurrentItemLevel.class
+dev\nuer\pe\method\CheckItemIsValid.class
 dev\nuer\pe\command\PeCommand.class
+dev\nuer\pe\method\RegisterEnchantments.class
+dev\nuer\pe\event\EnchantApplyEvent.class

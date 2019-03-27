@@ -18,7 +18,7 @@ public class CraftItem {
         ItemMeta itemMeta = item.getItemMeta();
         List<String> itemLore = new ArrayList<>();
         ItemMetaMethods.setDisplayName(bookNumber + ".name", itemMeta, files, romanNumeral);
-        ItemMetaMethods.addLore(bookNumber + ".lore", itemLore, files, romanNumeral);
+        ItemMetaMethods.addLore(bookNumber + ".lore", itemLore, files);
         if (files.getEnchantments().getBoolean(bookNumber + ".glowing")) {
             itemMeta.addEnchant(Enchantment.LURE, 10, true);
             itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);

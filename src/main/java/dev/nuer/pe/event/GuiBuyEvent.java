@@ -15,6 +15,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
 import java.util.HashMap;
@@ -43,9 +44,9 @@ public class GuiBuyEvent implements Listener {
             //Store the book number
             String bookNumber;
             //Check that the item they are clicking is an actual book
-            if (validItem.isInventoryClickValid(guiBuyEvent)) {
+            if (validItem.isInventoryCurrentItemValid(guiBuyEvent)) {
                 //Get the book number from the hashmap of registered enchantments
-                bookNumber = GetBookNumber.getBookNumber(enchantments, validItem.getItemLore());
+                bookNumber = GetBookNumber.getBookNumber(enchantments, validItem.getCurrentItemLore());
                 //Check that the player has space in their inventory
                 if (player.getInventory().firstEmpty() != -1) {
                     //Check to see if the player has enough exp, then subtract it
@@ -53,7 +54,9 @@ public class GuiBuyEvent implements Listener {
                         player.setLevel(player.getLevel() - files.getEnchantments().getInt(bookNumber + ".exp-cost"));
                         int bookLevel = new Random().nextInt(files.getEnchantments().getInt(bookNumber + ".max-level") + 1);
                         String romanNumeral = RomanNumber.toRomanNumeral(bookLevel);
-                        player.getInventory().addItem(CraftItem.craftItem(bookNumber, Material.getMaterial(files.getEnchantments().getString(bookNumber + ".material").toUpperCase()), files, romanNumeral));
+                        ItemStack book = CraftItem.craftItem(bookNumber,
+                                Material.getMaterial(files.getEnchantments().getString(bookNumber + ".material").toUpperCase()), files, romanNumeral);
+                        player.getInventory().addItem(book);
                         new SpawnFirework(player);
                         new PlayerMessage("successful-purchase", player, files);
                     } else {

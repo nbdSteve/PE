@@ -1,19 +1,19 @@
 package dev.nuer.pe.method;
 
-import dev.nuer.pe.file.LoadPEFiles;
+import org.bukkit.ChatColor;
 import org.bukkit.inventory.meta.ItemMeta;
-
-import java.util.List;
 
 public class GetBookLevel {
 
-    public static int getBookLevel(ItemMeta itemMeta, List<String> itemLore, LoadPEFiles files) {
+    public static int getBookLevel(ItemMeta itemMeta) {
         String[] bookLevel = itemMeta.getDisplayName().split(" ");
-        switch (bookLevel[bookLevel.length - 1]) {
+        switch (ChatColor.translateAlternateColorCodes('&', bookLevel[bookLevel.length - 1])) {
             case "I":
                 return 1;
             case "II":
                 return 2;
+            case "III":
+                return 3;
             case "IV":
                 return 4;
             case "V":

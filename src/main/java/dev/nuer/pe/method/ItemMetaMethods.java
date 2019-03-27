@@ -5,6 +5,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ItemMetaMethods {
@@ -26,9 +27,19 @@ public class ItemMetaMethods {
         }
     }
 
-    public static void addLore(String filePath, List<String> lore, LoadPEFiles files, String replacement) {
+    public static void addLore(String filePath, List<String> lore, LoadPEFiles files,
+                               String placeholder, String replacement) {
         for (String line : files.getEnchantments().getStringList(filePath)) {
-            lore.add(ChatColor.translateAlternateColorCodes('&', line).replace("%Roman", replacement));
+            lore.add(ChatColor.translateAlternateColorCodes('&', line).replace(placeholder,
+                    replacement));
+        }
+    }
+
+    public static void removeLore(String loreToRemove, List<String> lore) {
+        for (String line : lore) {
+            if (line.equals(ChatColor.translateAlternateColorCodes('&', loreToRemove))) {
+                lore.remove(line);
+            }
         }
     }
 

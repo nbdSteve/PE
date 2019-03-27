@@ -7,6 +7,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
 import java.util.HashMap;
@@ -29,9 +30,9 @@ public class Enchanter {
     private void addBooksToGui(Inventory inventory) {
         for (int i = 1; i <= 55; i++) {
             if (enchantments.containsKey(i)) {
-                inventory.setItem(files.getEnchantments().getInt(i + ".gui-slot"),
-                        CraftItem.craftItem(String.valueOf(i), Material.getMaterial(files.getEnchantments().getString(i + ".material").toUpperCase()),
-                                files, ChatColor.translateAlternateColorCodes('&', "&k{}")));
+                ItemStack book =  CraftItem.craftItem(String.valueOf(i), Material.getMaterial(files.getEnchantments().getString(i + ".material").toUpperCase()),
+                        files, ChatColor.translateAlternateColorCodes('&', "&k{}"));
+                inventory.setItem(files.getEnchantments().getInt(i + ".gui-slot"), book);
             }
         }
     }

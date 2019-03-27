@@ -8,5 +8,8 @@
   gui-slot: 0
   exp-cost: 30
   glowing: true
+  active-item: boots
   lore:
     - '&6*Speed Boost*'
+  enchantment-lore:
+    - '&6Velocity %Level'
